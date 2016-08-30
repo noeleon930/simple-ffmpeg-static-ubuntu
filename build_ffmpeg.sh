@@ -33,6 +33,16 @@ make install && \
 \
 \
 cd $FFHOME/ffmpeg_sources && \
+wget http://downloads.xiph.org/releases/opus/opus-1.1.2.tar.gz && \
+tar xzf opus-1.1.2.tar.gz && \
+cd $FFHOME/ffmpeg_sources/opus-1.1.2 && \
+./configure --prefix="$FFHOME/ffmpeg_build" \
+            --disable-shared && \
+make -j$jval && \
+make install && \
+\
+\
+cd $FFHOME/ffmpeg_sources && \
 hg clone https://bitbucket.org/multicoreware/x265 && \
 cd $FFHOME/ffmpeg_sources/x265/build/linux && \
 cmake -G "Unix Makefiles" \
