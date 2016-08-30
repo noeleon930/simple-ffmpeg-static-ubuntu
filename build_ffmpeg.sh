@@ -1,10 +1,11 @@
 #!/bin/bash
 
 jval=`nproc`
+FFHOME=`pwd`
 
-mkdir -p $HOME/ffmpeg_sources && \
-mkdir -p $HOME/ffmpeg_build && \
-mkdir -p $HOME/ffmpeg_bin && \
+mkdir -p $FFHOME/ffmpeg_sources && \
+mkdir -p $FFHOME/ffmpeg_build && \
+mkdir -p $FFHOME/ffmpeg_bin && \
 \
 \
 apt update && \
@@ -20,21 +21,21 @@ apt install yasm libx264-dev libfdk-aac-dev \
             libxvmc-dev libxvidcore-dev -y && \
 \
 \
-cd $HOME/ffmpeg_sources && \
+cd $FFHOME/ffmpeg_sources && \
 hg clone https://bitbucket.org/multicoreware/x265 && \
-cd $HOME/ffmpeg_sources/x265/build/linux && \
+cd $FFHOME/ffmpeg_sources/x265/build/linux && \
 cmake -G "Unix Makefiles" \
-      -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" \
+      -DCMAKE_INSTALL_PREFIX="$FFHOME/ffmpeg_build" \
       -DENABLE_SHARED:bool=off ../../source && \
 make -j$jval && \
 make install && \
 \
 \
-cd $HOME/ffmpeg_sources && \
+cd $FFHOME/ffmpeg_sources && \
 wget http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.5.0.tar.bz2 && \
 tar xjf libvpx-1.5.0.tar.bz2 && \
-cd $HOME/ffmpeg_sources/libvpx-1.5.0 && \
-./configure --prefix="$HOME/ffmpeg_build" \
+cd $FFHOME/ffmpeg_sources/libvpx-1.5.0 && \
+./configure --prefix="$FFHOME/ffmpeg_build" \
             --disable-examples \
             --disable-unit-tests \
             --disable-shared && \
@@ -42,17 +43,17 @@ make -j$jval && \
 make install && \
 \
 \
-cd $HOME/ffmpeg_sources && \
+cd $FFHOME/ffmpeg_sources && \
 wget http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2 && \
 tar xjf ffmpeg-snapshot.tar.bz2 && \
-cd $HOME/ffmpeg_sources/ffmpeg && \
-export PKG_CONFIG_PATH=$HOME/ffmpeg_build/lib/pkgconfig:$PKG_CONFIG_PATH && \
+cd $FFHOME/ffmpeg_sources/ffmpeg && \
+export PKG_CONFIG_PATH=$FFHOME/ffmpeg_build/lib/pkgconfig:$PKG_CONFIG_PATH && \
 ./configure \
-  --prefix="$HOME/ffmpeg_build" \
+  --prefix="$FFHOME/ffmpeg_build" \
   --pkg-config-flags="--static" \
-  --extra-cflags="-I$HOME/ffmpeg_build/include" \
-  --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
-  --bindir="$HOME/ffmpeg_bin" \
+  --extra-cflags="-I$FFHOME/ffmpeg_build/include" \
+  --extra-ldflags="-L$FFHOME/ffmpeg_build/lib" \
+  --bindir="$FFHOME/ffmpeg_bin" \
   --enable-gpl \
   --enable-version3 \
   --enable-nonfree \
@@ -72,8 +73,8 @@ make -j$jval && \
 make install && \
 \
 \
-mv $HOME/ffmpeg_bin/* $HOME && \
-rm -rf $HOME/ffmpeg_* && \
+mv $FFHOME/ffmpeg_bin/* $FFHOME && \
+rm -rf $FFHOME/ffmpeg_* && \
 \
 \
 echo "done!"
