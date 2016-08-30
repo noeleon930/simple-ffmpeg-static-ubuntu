@@ -54,6 +54,9 @@ export PKG_CONFIG_PATH=$HOME/ffmpeg_build/lib/pkgconfig:$PKG_CONFIG_PATH && \
   --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
   --bindir="$HOME/ffmpeg_bin" \
   --enable-gpl \
+  --enable-version3 \
+  --enable-nonfree \
+  --enable-avisynth \
   --enable-libass \
   --enable-libfdk-aac \
   --enable-libfreetype \
@@ -64,10 +67,7 @@ export PKG_CONFIG_PATH=$HOME/ffmpeg_build/lib/pkgconfig:$PKG_CONFIG_PATH && \
   --enable-libvpx \
   --enable-libx264 \
   --enable-libx265 \
-  --enable-libxvid \
-  --enable-avisynth \
-  --enable-version3 \
-  --enable-nonfree && \
+  --enable-libxvid && \
 make -j$jval && \
 make install && \
 \
