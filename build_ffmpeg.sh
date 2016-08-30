@@ -8,17 +8,17 @@ mkdir -p $FFHOME/ffmpeg_build && \
 mkdir -p $FFHOME/ffmpeg_bin && \
 \
 \
-apt update && \
-apt install wget curl tar git mercurial tree vim -y && \
-apt install autoconf automake build-essential \
-            libass-dev libfreetype6-dev libsdl1.2-dev \
-            libtheora-dev libtool libva-dev libvdpau-dev \
-            libvorbis-dev libxcb1-dev libxcb-shm0-dev \
-            libxcb-xfixes0-dev pkg-config texinfo \
-            zlib1g-dev cmake-curses-gui -y && \
-apt install yasm libx264-dev libmp3lame-dev \
-            libopus-dev libxv-dev \
-            libxvmc-dev libxvidcore-dev -y && \
+apt-get update && \
+apt-get install wget curl tar git mercurial tree vim -y && \
+apt-get install autoconf automake build-essential \
+                libass-dev libfreetype6-dev libsdl1.2-dev \
+                libtheora-dev libtool libva-dev libvdpau-dev \
+                libvorbis-dev libxcb1-dev libxcb-shm0-dev \
+                libxcb-xfixes0-dev pkg-config texinfo \
+                zlib1g-dev cmake-curses-gui -y && \
+apt-get install yasm libx264-dev libmp3lame-dev \
+                libopus-dev libxv-dev \
+                libxvmc-dev libxvidcore-dev -y && \
 \
 \
 cd $FFHOME/ffmpeg_sources && \
