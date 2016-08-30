@@ -16,9 +16,12 @@ apt-get install autoconf automake build-essential \
                 libvorbis-dev libxcb1-dev libxcb-shm0-dev \
                 libxcb-xfixes0-dev pkg-config texinfo \
                 zlib1g-dev cmake-curses-gui -y && \
-apt-get install yasm libx264-dev libmp3lame-dev \
-                libopus-dev libxv-dev \
-                libxvmc-dev libxvidcore-dev -y && \
+apt-get install yasm \
+                libx264-dev \
+                libmp3lame-dev \
+                libxv-dev \
+                libxvmc-dev \
+                libxvidcore-dev -y && \
 \
 \
 cd $FFHOME/ffmpeg_sources && \
