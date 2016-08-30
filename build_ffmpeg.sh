@@ -9,16 +9,27 @@ mkdir -p $FFHOME/ffmpeg_bin && \
 \
 \
 apt update && \
-apt install wget curl tar git mercurial -y && \
+apt install wget curl tar git mercurial tree vim -y && \
 apt install autoconf automake build-essential \
             libass-dev libfreetype6-dev libsdl1.2-dev \
             libtheora-dev libtool libva-dev libvdpau-dev \
             libvorbis-dev libxcb1-dev libxcb-shm0-dev \
             libxcb-xfixes0-dev pkg-config texinfo \
             zlib1g-dev cmake-curses-gui -y && \
-apt install yasm libx264-dev libfdk-aac-dev \
-            libmp3lame-dev libopus-dev libxv-dev \
+apt install yasm libx264-dev libmp3lame-dev \
+            libopus-dev libxv-dev \
             libxvmc-dev libxvidcore-dev -y && \
+\
+\
+cd $FFHOME/ffmpeg_sources && \
+wget -O fdk-aac.tar.gz https://github.com/mstorsjo/fdk-aac/tarball/master && \
+tar xzf fdk-aac.tar.gz && \
+cd $FFHOME/ffmpeg_sources/mstorsjo-fdk-aac* && \
+autoreconf -fiv && \
+./configure --prefix="$HOME/ffmpeg_build" \
+            --disable-shared && \
+make -j$jval && \
+make install && \
 \
 \
 cd $FFHOME/ffmpeg_sources && \
