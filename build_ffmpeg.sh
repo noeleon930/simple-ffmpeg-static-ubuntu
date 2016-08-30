@@ -26,7 +26,7 @@ wget -O fdk-aac.tar.gz https://github.com/mstorsjo/fdk-aac/tarball/master && \
 tar xzf fdk-aac.tar.gz && \
 cd $FFHOME/ffmpeg_sources/mstorsjo-fdk-aac* && \
 autoreconf -fiv && \
-./configure --prefix="$HOME/ffmpeg_build" \
+./configure --prefix="$FFHOME/ffmpeg_build" \
             --disable-shared && \
 make -j$jval && \
 make install && \
