@@ -1,4 +1,4 @@
-## ubuntu:12, 14, 16 tested
+## ubuntu:14, 16 tested
 
 `mkdir ffmpeg`  
 `cd ffmpeg`  
