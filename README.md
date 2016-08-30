@@ -1,5 +1,3 @@
-`mkdir ffmpeg`
-
-`cd ffmpeg`
-
-`../simple-ffmpeg-static-ubuntu/build_ffmpeg.sh`
+`mkdir ffmpeg`  
+`cd ffmpeg`  
+`../simple-ffmpeg-static-ubuntu/build_ffmpeg.sh`  
